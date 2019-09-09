@@ -1,0 +1,58 @@
+{
+    "lookupConfig": "../config/psgtechlookup.json",
+    "lookupConfigPath": "../config/psgtechlookup.json",
+    "validationInformationPath": "../config/validationInformationPath.js",
+    "serverConfig": {
+        "maintenanceMode": false,
+        "behindHttps": false
+    },
+    "timeZoneConfig": {
+        "hoursOffset": 5,
+        "minsOffset": 30
+    },
+    "dbConfig": {
+        "url": "mongodb://localhost:27017/ies-fees"
+    },
+    "authServerConfig": {
+        "settings": {
+            "baseUrl": "http://localhost:8080/auth",
+            "username": "admin",
+            "password": "PsgSt02112016",
+            "grant_type": "password",
+            "client_id": "admin-cli"
+        },
+        "realmName": "ies",
+        "studentUserGroup": "STUDENT"
+    },
+    "emailConfig": {
+        "enableGlobalListInvite": true,
+        "mockEmail": "prasanna@psgsoftwaretechnologies.com"
+    },
+    "mailServiceConfig": {
+        "apiKey-dev": "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",
+        "apiKey": "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",
+        "apiKey-prod": "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",
+        "path": "/v3/mail/send",
+        "fromEmail": "donotreply@psgtech.ac.in"       
+    },
+    "logConfig": {
+        "httpRequestLog": {
+            "fname": "httpRequest.log",
+            "rfsOptions": {
+                "size": "10M",
+                "interval": "1d",
+                "compress": "gzip"
+            },
+            "format": ":remote-addr - :remote-user :date[clf] ':method :url HTTP/:http-version' :status :res[content-length] :response-time ':referrer' ':user-agent'"
+        },
+        "appLog": {
+            "streamConfig": {
+                "type": "rotating-file",
+                "fname": "app.log",
+                "period": "1d",
+                "count": 7,
+                "level": "debug"
+            }
+        }
+    }
+}

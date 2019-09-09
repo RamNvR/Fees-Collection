@@ -1,0 +1,6 @@
+{
+    "emailVerification": {
+        "subject": "PSG-TECH Portal: Please verify your Email",
+        "templateFile": "emailVerification.html"
+    }
+}

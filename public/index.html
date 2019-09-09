@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus" data-ng-app="app" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-focus" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+
+    <title>IES Fee Collection System</title>
+
+    <meta name="description" content="Fee Collection System">
+    <meta name="author" content="PSG TECH - SIS">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="img/favicons/favicon.png">
+
+    <link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-192x192.png" sizes="192x192">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+    <link rel="stylesheet" type="text/css" href="bower_components/dropzone/dist/dropzone.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/ng-dropzone/dist/ng-dropzone.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/ng-tags-input/ng-tags-input.bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/ng-tags-input/ng-tags-input.css"/>
+    <link type="text/css" rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Web fonts -->
+    <!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />-->
+    <link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />-->
+    <link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick-theme.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+
+    <!-- Bootstrap and Main CSS -->
+    <link rel="stylesheet" id="css-bootstrap" href="css/bootstrap.min.css">
+    <!-- build:remove -->
+    <link rel="stylesheet" id="css-main" href="css/index.css">
+    <link rel="stylesheet" id="css-althos-patient" href="css/ies_event.css">
+    <link href="/fonts/icomoon/styles.css" rel="stylesheet">
+
+    <!-- /build -->
+
+    <!-- END Stylesheets -->
+</head>
+
+<body data-ng-controller="AppCtrl">
+    <script type="text/javascript" src="http://account.psgsoftwaretechnologies.com/auth/js/keycloak.js"></script>
+    <!-- <script type="text/javascript" src="http://localhost:8080/auth/js/keycloak.js"></script> -->
+    
+    <!-- Page loader -->
+    <div id="page-loader"></div>
+
+    <!-- View loader (data-js-view-loader attribute is initialized in js/directives.js) -->
+    <div data-js-view-loader></div>
+
+    <!-- Page Container -->
+    <!-- You can update template settings or enable local storage feature in js/app.js -> 'AppCtrl' controller () -->
+    <div id="page-container" class="header-navbar-fixed header-navbar-transparent">
+
+        <!-- Header -->
+        <ins-header></ins-header>
+
+        <!-- Main Container -->
+        <div id="main-container" data-autoscroll="true" data-ui-view>
+
+        </div>
+
+        <!-- Footer -->
+        <ins-footer></ins-footer>
+
+    </div>
+    <!-- END Page Container -->
+
+
+    <!-- JS Code -->
+    <!-- Core JS: jQuery & Bootstrap Related -->
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+    <script src="bower_components/jquery.appear/jquery.appear.js"></script>
+    <script src="bower_components/jquery-countTo/jquery.countTo.js"></script>
+    <script src="bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    
+    <script type="text/javascript" src="bower_components/moment-timezone/builds/moment-timezone.min.js"></script>
+
+    <!-- Core JS: AngularJS Related -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/dropzone/dist/dropzone.js" /></script>
+    <script src="bower_components/ng-dropzone/dist/ng-dropzone.js" /></script>
+    <script src="bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="bower_components/jquery-validation/dist/additional-methods.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>  
+    <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+    
+    
+    <script type="text/javascript" src="auth/config"></script>
+    <!-- Core JS: App Related -->
+    <script src="dist/psg_ies_fee_collection.js"></script>
+    <!-- /build -->
+</body>
+
+</html>

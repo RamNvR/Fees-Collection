@@ -1,0 +1,348 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="element-wrapper">
+        <h4 class="element-header">Create Event</h4>
+      </div>
+      <!-- Page Content -->
+
+      <div class="row push-30">
+        <div class="col-md-9">
+          <div class="event_detail">
+            <div class="block-content">
+              <form class="push-30 b-b padded-tb js-validation-bootstrap " id="eventCreateForm ">
+                <h5 class="sub-title">Organizer Details</h5>
+                <div class="row form-group">
+                  <!-- <div class="col-sm-6">
+                     <label for="eventOrgInst">Organizing Institution</label>
+                    <select data-js-select2 class="form-control" id="eventOrgInst" name="eventOrgInst" data-placeholder="Select Institution" data-ng-model="event.OrgIns">
+                      <option ng-repeat="institution in institutions track by $index" value="{{institution}}">{{institution}}</option> 
+                    </select>
+                  </div> -->
+                  <div class="col-sm-6">
+                    <label for="eventOrgInst">Organizing Body</label>
+                    <select data-js-select2 class="form-control" id="eventOrgBody" name="eventOrgBody" data-placeholder="Select Organizing Body"
+                      data-ng-model="event.orgBody">
+                      <option value="association">Association</option>
+                      <option value="club">Club</option>
+                      <option value="institution">Institution</option>
+                      <option value="trust">Trust</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-sm-6" ng-show="(event.orgBody=='association')">
+                    <label for="eventOrgName">Associations</label>
+                    <select data-js-select2 class="form-control" id="eventOrgBy" name="eventOrgInst" data-placeholder="Select Association" data-ng-options="association.name for association in associations"
+                      data-ng-model="event.orgBy"></select>
+                  </div>
+                  <div class="col-sm-6" ng-show="(event.orgBody=='club')">
+                    <label for="eventOrgName">Clubs</label>
+                    <select data-js-select2 class="form-control" id="eventOrgBy" name="eventOrgInst" data-placeholder="Select Club" data-ng-options="club.name for club in clubs"
+                      data-ng-model="event.orgBy"></select>
+                  </div>
+                  <div class="col-sm-6" ng-show="(event.orgBody=='institution')">
+                    <label for="eventOrgName">Institute</label>
+                    <select data-js-select2 class="form-control" id="eventOrgBy" name="eventOrgInst" data-placeholder="Select Club" data-ng-options="institute.name for institute in institutions"
+                      data-ng-model="event.orgBy"></select>
+                  </div>
+                  <div class="col-sm-6" ng-show="(event.orgBody=='trust')">
+                    <label for="eventOrgName">Trust</label>
+                    <select data-js-select2 class="form-control" id="eventOrgBy" name="eventOrgInst" data-placeholder="Select Club" data-ng-options="trust.name for trust in trusts"
+                      data-ng-model="event.orgBy"></select>
+                  </div>
+                  <div class="col-sm-6" ng-show="event.orgBody">
+                    <label for="eventOrgName">Event Category</label>
+                    <select data-js-select2 class="form-control" id="eventOrgBy" name="eventOrgInst" data-placeholder="Select Category" data-ng-options="category for category in event.orgBy.categories"
+                      data-ng-model="event.category"></select>
+                  </div>
+                </div>
+                <h5 class="sub-title">Event Details</h5>
+                <div class="row form-group">
+                  <div class="col-sm-6">
+                    <label for="eventTitle">Event Title</label>
+                    <input id="eventTitle" name="eventTitle" placeholder="Give it a short distinct name" class="form-control" type="text" data-ng-model="event.title">
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="eventLocation">Venue</label>
+                    <select data-js-select2 class="form-control" id="eventLocation" name="eventLocation" data-placeholder="Search for a venue or location"
+                      data-ng-options="venue.name for venue in venues" data-ng-model="event.venue">
+                    </select>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-sm-6">
+                    <label for="eventStart">Starts</label>
+                    <div class="input-group date">
+                      <input data-js-datetimepicker class="form-control" type="text" id="example-datetimepicker2" name="example-datetimepicker2"
+                        placeholder="Choose Date and Time" datepicker-date="event.start">
+                      <span class="input-group-addon">
+                        <span class="icon-calendar2"></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="eventEnd">Ends</label>
+                    <div class="input-group date">
+                      <input data-js-datetimepicker class="form-control" type="text" id="example-datetimepicker1" name="example-datetimepicker1"
+                        placeholder="Choose Date and Time" datepicker-date="event.end">
+                      <span class="input-group-addon">
+                        <span class="icon-calendar2"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-sm-6">
+                    <label for="eventCost">Cost</label>
+                    <input id="eventCost" name="eventCost" placeholder="" class="form-control" type="text" data-ng-model="event.Cost">
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="eventCoordinators">Add Coordinators</label>
+                    <button id="eventCoordinators" data-target="#addCoordinators" data-toggle="modal" class="btn btn-primary">
+                      <i class="icon-plus-circle2"></i> Add</button>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-sm-6">
+                    <label for="eventImage">Event Image</label>
+                    <div class="dropzone" options="displayPicture.dzOptions" callbacks="displayPicture.dzCallbacks" method="displayPictures.dzMethods"
+                      ng-dropzone></div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="eventDesc">Event Description</label>
+                    <br>
+                    <div data-js-summernote id="eventDesc" name="eventDesc"></div>
+                  </div>
+                </div>
+                <div class="profile-sections-header-w">
+                  <h5 class="profile-sections-header">Agenda</h5>
+                  <a class="add-task-btn" href="" ng-click="addAgenda()">
+                    <i class="icon-plus-circle2"></i>
+                    <span>Add Agenda</span>
+                  </a>
+                </div>
+                <div ng-repeat="agenda in agendalist track by $index">
+                  <div class="profile-sections-header-w">
+                    <h5 class="profile-sections-header">Agenda {{$index+1}}</h5>
+                    <a class="add-task-btn" href="" ng-click="removeAgenda()">
+                      <i class="icon-minus-circle2"></i>
+                      <span>Remove Agenda</span>
+                    </a>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-sm-6">
+                      <label for="eventAgendaStart">Starts</label>
+                      <div class="input-group date">
+                        <input data-js-datetimepicker class="form-control" type="text" id="eventAgendaStart" name="eventAgendaStart" placeholder="Choose Date and Time"
+                          datepicker-date="agenda.start">
+                        <span class="input-group-addon">
+                          <span class="icon-calendar2"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="eventAgendaEnd">Ends</label>
+                      <div class="input-group date">
+                        <input data-js-datetimepicker class="form-control" type="text" id="eventAgendaEnd" name="eventAgendaEnd" placeholder="Choose Date and Time"
+                          datepicker-date="agenda.end">
+                        <span class="input-group-addon">
+                          <span class="icon-calendar2"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-sm-6">
+                      <label for="eventAgendaTitle">Agenda Title</label>
+                      <input id="eventAgendaTitle" name="eventAgendaTitle" placeholder="Give it a short distinct name" class="form-control" type="text"
+                        data-ng-model="agenda.title">
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="eventAgendaSummary">Agenda Summary</label>
+                      <textarea class="form-control" id="eventAgendaSummary" name="eventAgendaSummary" data-ng-model="agenda.summary"></textarea>
+                    </div>
+                  </div>
+                  <div class="row form-group ">
+                    <div class="col-sm-6">
+                      <div class="row form-group">
+                        <div class="col-sm-11">
+                          <label for="agendaSpeakers">Speaker</label>
+                          <select data-js-select2 class="form-control" id="eventSpeaker" data-placeholder="Please Select Speaker" data-ng-model="agenda.speaker">
+                            <option></option>
+                            <option value="" selected="selected">Please select Speaker</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-1">
+                          <ul class="float-button push-30-t">
+                            <li>
+                              <button type="button" data-js-block-option>
+                                <i class="icon-plus-circle2"></i>
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="eventAgendaVenue">Venue</label>
+                      <select data-js-select2 class="form-control" id="eventAgendaVenue" name="eventAgendaVenue" data-placeholder="Search for a venue"
+                        data-ng-options="venue.name for venue in venues" data-ng-model="agenda.venue">
+                      </select>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <!--</form>
+              <form class="push-30">-->
+                <h5 class="sub-title">Gallery Images</h5>
+                <div class="row form-group">
+                  <div class="col-sm-4">
+                    <div class="dropzone" options="galleryPicture.dzOptions" callbacks="galleryPicture.dzCallbacks" method="galleryPicture.dzMethods"
+                      ng-dropzone></div>
+                  </div>
+                  <div class="col-sm-8">
+                    <table class="table">
+                      <tr ng-repeat="gallPics in gallPicDets track by $index">
+                        <td>
+                          <img ng-src='events/displayPicture/{{gallPics.contentType}}/{{gallPics.id}}/{{gallPics.originalname}}' height="100" width="100"
+                          />
+                        </td>
+                        <td>
+                          <div class="col-sm-8">
+                            <label for="img-Caption-{{$index}}">Caption</label>
+                            <input id="img-Caption-{{$index}}" placeholder="Give it a short distinct caption" class="form-control" type="text" data-ng-model="gallPics.caption">
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <!--</form>
+              <form class="push-30">-->
+                <h5 class="sub-title">Additional Details</h5>
+                <div class="row form-group">
+                  <div class="col-sm-12">
+                    <label for="Setcategory">Add or Remove Categories</label>
+                    <tags-input ng-model="event.tags" class="angtaginput" use-strings="true">
+
+                    </tags-input>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-sm-6">
+                    <label for="eventPrivacy">Listing Privacy</label>
+                    <br>
+                    <label class="css-input css-radio css-radio-primary m-r-20" for="radios-2">
+                      <input name="radios2" id="radios-2" value="Public Page" type="radio" data-ng-model="event.page">
+                      <span></span> Public page:
+                      <span class="help-block">Discoverable by anyone in the Institution, distribution partners, and search engines.</span>
+                    </label>
+                    <br>
+                    <label class="css-input css-radio css-radio-primary" for="radios-3">
+                      <input name="radios2" id="radios-3" value="Private Page" type="radio" data-ng-model="event.page">
+                      <span></span> Private page:
+                      <span class="help-block">Accessible only by people you specify.</span>
+                    </label>
+                 </div>
+                  <div class="col-sm-6">
+                    <label for="eventSharing">Allow the event to be shared on Social Media?</label>
+                    <br>
+                    <label class="css-input css-radio css-radio-primary m-r-20" for="eventSharing1">
+                      <input name="eventSharing" id="eventSharing1" value="Yes" type="radio" data-ng-model="event.sharing">
+                      <span></span> Yes </label>
+                    <label class="css-input css-radio css-radio-primary" for="eventSharing2">
+                      <input name="eventSharing" id="eventSharing2" value="No" type="radio" data-ng-model="event.sharing">
+                      <span></span> No </label>
+                  </div>
+                </div>
+
+                <div class="padded-tb">
+                  <hr />
+                </div>
+                <div class="row form-group pull-right">
+                  <div class="col-sm-12">
+                    <button class="btn btn-secondary push-10-r" type="submit">Cancel</button>
+                    <button class="btn btn-primary" type="submit" ng-click="createEvent(event)" id="add-event-btn">Add Event</button>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 ">
+          <div class="sidebar-filter">
+            <div class="block">
+              <div class="sidebar-filter-title">
+                <span>Tips</span>
+                <ul class="block-options pull-right">
+                  <li>
+                    <button type="button" data-js-block-option data-action="content_toggle"></button>
+                  </li>
+                </ul>
+              </div>
+              <div class="block-content sidebar-filter-content">
+                <p>
+                  <span class="font-w600">Boost your event attendance by</span>:</p>
+                <ul class="list-simple-mini">
+                  <li>Grabbing attention with a compelling event image</li>
+                  <li>Adding a clear event description with FAQs (like refund policy or dress code)</li>
+                  <li>Promoting all your upcoming events in one place with your organizer profile page</li>
+                </ul>
+                <p class="push-30-t">
+                  <span class="font-w600">There are four levels of privacy for events that you can adjust at any time</span>: </p>
+                <ul class="list-simple-mini">
+                  <li>
+                    <span class="font-w600">Public:</span> Your event is visible on our site and search engines like Google. With public events,
+                    pick an event type and topic so attendees can find your event.</li>
+                  <li>
+                    <span class="font-w600">Private:</span> Your event can't be found via search, but people with the URL can see the event page.
+                    (You can choose to let the event be shared on social media.)</li>
+                  <li>
+                    <span class="font-w600">Password protected:</span> You set a password attendees must enter to see your event page.</li>
+                  <li>
+                    <span class="font-w600">Invite-only:</span> Attendees can only register through the invitation you send them.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="addCoordinators" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- <div class="modal fade" id="addCoordinators" tabindex="-1" role="dialog" aria-hidden="true"> -->
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Add Cordinator</h4>
+        </div>
+        <div class="modal-body form-horizontal">
+          <div ng-repeat="coordinator in event.coordinators track by $index" class="row form-group">
+            <div class="col-sm-4">
+              <label for="coordinatorName">Name</label>
+              <input id="coordinatorName" name="coordinatorName" placeholder="Co-ordinator Name" class="form-control" type="text" data-ng-model="coordinator.name">
+            </div>
+            <div class="col-sm-4">
+              <label for="coordinatorRole">Role</label>
+              <input id="coordinatorRole" name="coordinatorRole" placeholder="Co-ordinator Role in Event" class="form-control" type="text"
+                data-ng-model="coordinator.role">
+            </div>
+            <div class="col-sm-3">
+              <button class="btn btn-primary" ng-click="removeCoordinator($index)">
+                <i class="icon-minus-circle2"></i> Remove</button>
+            </div>
+          </div>
+          <div class="row form-group">
+            <button class="btn btn-primary push-right" ng-click="addCoordinator()">
+              <i class="icon-plus-circle2"></i> Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Page Content -->

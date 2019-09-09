@@ -1,0 +1,94 @@
+<header id="header-navbar" class="content-mini content-mini-full">
+  <ul class="nav-header pull-right">
+    <li>
+      <div class="btn-group dropdown-user">
+        <button class="btn btn-link text-white dropdown-toggle" data-toggle="dropdown" type="button">
+          <img ng-src="img/{{Auth.tokenParsed.preferred_username.toUpperCase()}}.JPG" alt="{{Auth.tokenParsed.name}}"> </button>
+        <ul class="dropdown-menu dropdown-menu-right sidebar-mini-hide font-s13">
+          <li>
+            <a data-toggle="theme" data-theme="default" tabindex="-1" href="javascript:void(0)">{{Auth.tokenParsed.name}}</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a data-toggle="theme" data-theme="default" tabindex="-1" href="javascript:void(0)" ng-click="viewMyAccount()">
+              <i class="icon-user-plus"></i> My profile
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="javascript:void(0)" ng-click="logout()">
+              <i class="icon-switch2"></i> Logout</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <div class="menu-top">
+    <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target="#navbar-collapse-2" class="navbar-toggle">
+        <i class="fa fa-navicon"></i>
+      </button>
+      <a href="#" class="navbar-brand">
+        <img src="/img/logo.png" alt="" />
+      </a>
+    </div>
+    <div id="navbar-collapse-2" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a data-ui-sref="setupAccount" data-ui-sref-active="active">
+            <i class="icon-drawer push-5-r"></i>Accounts
+          </a>
+        </li>
+        <li>
+          <a data-ui-sref="feeComponent" data-ui-sref-active="active">
+            <i class="icon-drawer push-5-r"></i>Fee Components
+          </a>
+        </li>
+        <li>
+          <a data-ui-sref="feeTemplate" data-ui-sref-active="active">
+            <i class="icon-drawer push-5-r"></i>Fee Templates
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+            <i class=" icon-circles2 prefix"></i>Fees
+            <i class=" icon-arrow-down12"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <div class="menu-top-content megamenu clearfix">
+                <ul class="col-lg-12 link-list">
+                  <li>
+                    <a data-ui-sref="createFeeStructure" data-ui-sref-active="active">
+                      <i class="icon-arrow-right13"></i>Fee Structure</a>
+                  </li>
+                  <li>
+                    <a data-ui-sref="browseFeeStructure" data-ui-sref-active="active">
+                      <i class="icon-arrow-right13"></i>Browse Fee Structure</a>
+                  </li>
+                  <li>
+                    <a data-ui-sref="concessionRules" data-ui-sref-active="active">
+                      <i class="icon-arrow-right13"></i>Concession Rules</a>
+                  </li>
+                  <li>
+                    <a data-ui-sref="refundRules" data-ui-sref-active="active">
+                      <i class="icon-arrow-right13"></i>Refund Rules</a>
+                  </li>
+                  <li>
+                    <a data-ui-sref="feeCollection" data-ui-sref-active="active">
+                      <i class="icon-arrow-right13"></i>Fee Collection</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a data-ui-sref="setupCategories" data-ui-sref-active="active">
+            <i class="icon-hyperlink push-5-r"></i>Master Data
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

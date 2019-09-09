@@ -1,0 +1,159 @@
+<ul class="breadcrumb">
+    <li>Home</li>
+    <li>Fees Collection</li>
+    <li>
+        <a class="link-effect" href="">Account Setup</a>
+    </li>
+</ul>
+
+<!-- Page Content -->
+<div class="content">
+    <div class="element-wrapper">
+        <div class="element-actions">
+            <a href="#" class="add btn btn-primary btn-sm" data-target="#accountCreationModal" data-toggle="modal">
+                <i class="icon-add"></i>
+                <span>Add Account</span>
+            </a>
+        </div>
+        <h4 class="element-header">Account</h4>
+    </div>
+    <div class="block">
+        <div class="row push-30">
+            <div class="col-sm-12">
+                <table class="table table-striped table-hover standard-table font-s14 js-dataTable-full">
+                    <thead>
+                        <tr>
+                            <th>Account Name</th>
+                            <th>Account Code</th>
+                            <th>Bank Name</th>
+                            <th>Bank Account Number</th>
+                            <th>IFSC Code</th>
+                            <th>Branch Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in accounts track by $index">
+                            <td data-title="Name">{{x.accountName}}</td>
+                            <td data-title="accountCode">{{x.accountCode}}</td>
+                            <td data-title="bankName">{{x.bankName}}</td>
+                            <td data-title="bankAccountNo">{{x.bankAccountNo}}</td>
+                            <td data-title="ifsc">{{x.ifsc}}</td>
+                            <td data-title="branch">{{x.branchName}}</td>
+                            <td data-title="Action">
+                                <a href="" data-target="#editAccountModal" data-toggle="modal" ng-click="showAccount(x)" class="btn btn-default btn-xs push-5-r">
+                                    <i class="icon-pencil"></i>Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- END Page Content -->
+<div id="accountCreationModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Add Account</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="accountName" class="required">Account Name</label>
+                        <input id="accountName" placeholder="Enter an Account name" name="accountName" class="form-control" ng-model="account.accountName"
+                            type="text" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="accountCode">Account Code</label>
+                        <input id="accountCode" placeholder="Enter an Account name" name="accountCode" class="form-control" ng-model="account.accountCode"
+                            type="text">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="bankName" class="required">Bank Name</label>
+                        <input class="form-control" type="text" id="bankName" name="bankName" placeholder="Enter a Bank Name" data-ng-model="account.bankName"
+                            required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="bankAccountNo" class="required">Bank Account Number</label>
+                        <input class="form-control" type="text" id="bankAccountNo" name="bankAccountNo" placeholder="Enter Bank Account Number" data-ng-model="account.bankAccountNo"
+                            required>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="ifsc" class="required">IFSC Code</label>
+                        <input class="form-control" type="text" id="ifsc" name="ifsc" placeholder="IFSC Code" data-ng-model="account.ifsc" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="branch">Branch Name</label>
+                        <input class="form-control" type="text" id="branch" name="branch" placeholder="Branch Name" data-ng-model="account.branchName">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveAccount(account)">Save Section</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="editAccountModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Add Account</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="accountName">Account Name</label>
+                        <input id="accountName" name="accountName" class="form-control" ng-model="selectedAccount.accountName" type="text" disabled>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="accountCode">Account Code</label>
+                        <input id="accountCode" name="accountCode" class="form-control" ng-model="selectedAccount.accountCode" type="text" >
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="bankName" class="required">Bank Name</label>
+                        <input class="form-control" type="text" id="branch" name="branch" placeholder="Branch Name" data-ng-model="selectedAccount.bankName"
+                            required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="bankAccountNo" class="required">Bank Account Number</label>
+                        <input class="form-control" type="text" id="bankAccountNo" name="bankAccountNo" placeholder="Enter Bank A/c Number" data-ng-model="selectedAccount.bankAccountNo"
+                            required>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="ifsc" class="required">IFSC Code</label>
+                        <input class="form-control" type="text" id="ifsc" name="ifsc" placeholder="IFSC Code" data-ng-model="selectedAccount.ifsc"
+                            required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="branch">Branch Name</label>
+                        <input class="form-control" type="text" id="branch" name="branch" placeholder="Branch Name" data-ng-model="selectedAccount.branchName">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="editAccount(selectedAccount)">Update</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>

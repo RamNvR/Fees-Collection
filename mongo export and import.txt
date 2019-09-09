@@ -1,0 +1,1 @@
+mongoimport -d ies_fee_collection ies_fee_collection.rar
